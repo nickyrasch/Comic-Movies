@@ -44,6 +44,7 @@ group :test do
   gem "capybara", "~> 2.1.0"
   gem "database_cleaner", "~> 1.0.1"
   gem 'shoulda-matchers'
+  gem "faker", "~> 1.1.2"
 end
 
 # Use ActiveModel has_secure_password
