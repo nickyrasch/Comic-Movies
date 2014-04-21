@@ -1,3 +1,6 @@
 <li class="archived">
-  <h2><%= archived_movie.title %></h2>
+  <h2><%= link_to archived_movie.title,
+          movie_path(archived_movie.id)
+       %>
+  </h2>
 </li>

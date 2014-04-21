@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416224404) do
+ActiveRecord::Schema.define(version: 20140418232721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "characters", force: true do |t|
+    t.string  "name"
+    t.string  "image_file_name"
+    t.string  "description"
+    t.string  "first_appearance_comic_name"
+    t.string  "first_appearance_issue_number"
+    t.integer "comic_vine_id"
+    t.integer "side_id"
+  end
+
+  add_index "characters", ["side_id"], name: "index_characters_on_side_id", using: :btree
 
   create_table "movies", force: true do |t|
     t.string  "title"
@@ -23,6 +35,18 @@ ActiveRecord::Schema.define(version: 20140416224404) do
   end
 
   add_index "movies", ["type_id"], name: "index_movies_on_type_id", using: :btree
+
+  create_table "roles", force: true do |t|
+    t.integer "movie_id"
+    t.integer "character_id"
+  end
+
+  add_index "roles", ["character_id"], name: "index_roles_on_character_id", using: :btree
+  add_index "roles", ["movie_id"], name: "index_roles_on_movie_id", using: :btree
+
+  create_table "sides", force: true do |t|
+    t.string "name"
+  end
 
   create_table "types", force: true do |t|
     t.string "name"
