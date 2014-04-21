@@ -1,0 +1,22 @@
+<li>
+  <h2><%= character.name %></h2>
+  <div id="character">
+    <%= image_tag("#{character.image_file_name}") %>
+    <div class="<%= character.side_name %>">
+      <h3><%= character.side_name.capitalize %></h3>
+    </div>
+    <div>
+      <h3>DESCRIPTION</h3>
+      <p><%= character.description %></p>
+    </div>
+    <div>
+      <h3>FIRST APPEARANCE</h3>
+      <div>
+        Comic: <%= character.first_appearance_comic_name %>
+      </div>
+      <div>
+        Issue: <%= character.first_appearance_issue_number %>
+      </div>
+    </div>
+  </div>
+</li>

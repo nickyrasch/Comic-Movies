@@ -7,13 +7,13 @@
 <article>
   <h1>Coming Soon</h1>
   <ul>
-    <%= render partial: 'upcoming_movie', collection: @upcoming_movies %>
+    <%= render partial: 'upcoming_movie', collection: @movie_filter.upcoming_movies %>
   </ul>
 </article>
 <article>
   <h1>Archives</h1>
   <ul>
-    <%= render partial: 'archived_movie', collection: @archived_movies %>
+    <%= render partial: 'archived_movie', collection: @movie_filter.archived_movies %>
   </ul>
 </article>
 
