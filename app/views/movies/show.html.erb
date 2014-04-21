@@ -1,0 +1,27 @@
+<%= link_to 'All Movies', movies_path %>
+<article id="movie_poster">
+  <ul>
+    <li>
+      <h2><%= @movie.title %></h2>      
+      <%= image_tag(
+        "#{@movie.image_file_name}.jpg",
+        class: 'movie_poster') 
+      %>
+    </li>
+  </ul>
+</article>
+
+<article>
+  <h1>HEROES</h1>
+  <ul>
+    <%= render partial: 'character',
+        collection: @character_filter.heros %>
+  </ul>
+</article>
+
+<article>
+  <h1>VILLAINS</h1>
+  <ul>
+    <%= render partial: 'character', collection: @character_filter.villains %>
+  </ul>
+</article>
