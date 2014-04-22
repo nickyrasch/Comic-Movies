@@ -29,4 +29,3 @@ class Movie < ActiveRecord::Base
     collection  
   end
 end
-

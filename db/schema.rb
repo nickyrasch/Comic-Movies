@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140418232721) do
     t.string  "first_appearance_comic_name"
     t.string  "first_appearance_issue_number"
     t.integer "comic_vine_id"
+    t.integer "marvel_id"
     t.integer "side_id"
   end
 
