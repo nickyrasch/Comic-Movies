@@ -12,7 +12,7 @@ a {
   color: #111;
   text-decoration: none;
 }
-header, article, footer, .movie_poster, #about_message, ul li, ul li h2  {
+header, article, footer, .movie_poster, #about_message, ul li, ul li h2, #movie_poster  {
   width: 100%;
   float: left;
 }
