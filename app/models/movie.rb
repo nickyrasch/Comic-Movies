@@ -19,7 +19,7 @@ class Movie < ActiveRecord::Base
     results.each_with_index do |result, index|
       collection << Character.new(
         name: result['name'],
-        image_file_name: Marvel.fetch_image(characters.find_by_comic_vine_id(result['id']).marvel_id),
+        image_file_name: result['image']['small_url'],
         description: result['deck'],
         first_appearance_comic_name: result['first_appeared_in_issue']['name'],
         first_appearance_issue_number: result['first_appeared_in_issue']['issue_number'],
