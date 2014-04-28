@@ -19,5 +19,15 @@ module ComicMovies
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
+
+    config.action_controller.asset_host = 
+      "http://d1m6yt1zqrbl4q.cloudfront.net"
+    config.assets.digest = true  #use MD5 digest for asset names
+    config.assets.enabled = true  #enable the asset pipeline
+    config.assets.initialize_on_precompile = true
+    config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => '*'
+    }    
   end
 end
