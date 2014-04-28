@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'httparty'
+gem 'asset_sync'
 
 group :doc do
   gem 'sdoc', require: false
