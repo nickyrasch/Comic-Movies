@@ -10,6 +10,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'httparty'
 gem 'asset_sync'
+gem "paperclip", "~> 4.1"
+gem 'aws-sdk'
 
 group :doc do
   gem 'sdoc', require: false

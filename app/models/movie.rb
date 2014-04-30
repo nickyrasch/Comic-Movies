@@ -23,7 +23,7 @@ class Movie < ActiveRecord::Base
     results.map do |result|
       Character.new(
         name: result['name'],
-        image_file_name: result['image']['small_url'],
+        # image_file_name: result['image']['small_url'],
         description: result['deck'],
         first_appearance_comic_name: result['first_appeared_in_issue']['name'],
         first_appearance_issue_number: result['first_appeared_in_issue']['issue_number'],

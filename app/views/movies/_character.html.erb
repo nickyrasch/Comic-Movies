@@ -1,7 +1,7 @@
 <li>
   <h2><%= character.name %></h2>
   <div id="character">
-    <%= image_tag("#{character.image_file_name}") %>
+    <%= image_tag("#{Character.first.image.url}/standard_fantastic.jpg") %>
     <div class="<%= character.side_name %>">
       <h3><%= character.side_name.capitalize %></h3>
     </div>

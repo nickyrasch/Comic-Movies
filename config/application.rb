@@ -29,5 +29,9 @@ module ComicMovies
       'Access-Control-Allow-Origin' => '*',
       'Access-Control-Request-Method' => '*'
     }    
+    # config.paperclip_defaults = {
+    #   storage: :s3,
+    #   s3_credentials: 'config/initializers/s3.yml'
+    # }
   end
 end
