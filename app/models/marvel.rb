@@ -3,7 +3,6 @@ class Marvel
   base_uri 'gateway.marvel.com:80'
 
   def self.fetch_image(id)
-    puts "Marvel API call:"
     response = 
         self.get("/v1/public/characters/#{id}?#{MarvelParameters.credentials}")
     response_body = JSON.parse(response.body)

@@ -1,36 +1,19 @@
 class ImageCollector
-  # include ActiveModel::Conversion
-  # bextend ActiveModel::Naming
-  # attr_accessor :url
+  include ActiveModel::Conversion
+  extend ActiveModel::Naming
     
-
-  # def initialize
-  #   @ids = collect_ids
-  # end
-
-  # def save
-  #   #iterate over @ids, fetching the marvel image by id
-  #   # puts "First id: #{@ids[0]}"
-  #   image_collector = ImageCollector.new(params[:image_collector])
-  #   # character = Character.find_by_marvel_id(@ids[0])
-  #   # marvel_image_url = Marvel.fetch_image(@ids[0])
-  #   # puts "Marvel image: #{marvel_image_url}"
-  #   # puts "data type: #{marvel_image_url.class}"
-  #   # puts "URI parse: #{URI.parse(marvel_image_url)}"
-  #   # character.image = URI.parse(image_collector.url)
-  #   if image_collector.save
-  #     true
-  #   else
-  #     false
-  #   end
-  # end
-
-  def new_character_image
-    Character.new
+  def fetch_character_images
+    marvel_ids = collect_marvel_ids
+    image_urls = marvel_ids.map { |id| Marvel.fetch_image(id) }
+    Character.all.each do |character|
+      marvel_id = character.marvel_id
+      image_url = Marvel.fetch_image(marvel_id)
+      character.update_attributes(image: "#{image_url}/standard_fantastic.jpg")
+    end
   end
 
   private
-  def collect_ids
+  def collect_marvel_ids
     Character.all.map { |character| character.marvel_id }
   end
 end

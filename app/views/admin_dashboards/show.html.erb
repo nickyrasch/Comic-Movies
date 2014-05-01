@@ -1,11 +1,5 @@
 <h1>Admin Dashboard</h1>
 <h2>Fetch Marvel Images</h2>
-<%= form_for @image_collector.new_character_image,
-      url: character_path(1),
-      method: :put do |form| %>
-  <%#= form.label :image %>
-  <%#= form.file_field :image %>  
-  <%= form.label :image %>
-  <%= form.text_field :image %>
+<%= form_for @image_collector do |form| %>
   <div><%= form.submit 'Fetch' %></div>
 <% end %>
