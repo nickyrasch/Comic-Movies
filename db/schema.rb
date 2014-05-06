@@ -17,14 +17,17 @@ ActiveRecord::Schema.define(version: 20140418232721) do
   enable_extension "plpgsql"
 
   create_table "characters", force: true do |t|
-    t.string  "name"
-    t.string  "image_file_name"
-    t.string  "description"
-    t.string  "first_appearance_comic_name"
-    t.string  "first_appearance_issue_number"
-    t.integer "comic_vine_id"
-    t.integer "marvel_id"
-    t.integer "side_id"
+    t.string   "name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "description"
+    t.string   "first_appearance_comic_name"
+    t.string   "first_appearance_issue_number"
+    t.integer  "comic_vine_id"
+    t.integer  "marvel_id"
+    t.integer  "side_id"
   end
 
   add_index "characters", ["side_id"], name: "index_characters_on_side_id", using: :btree

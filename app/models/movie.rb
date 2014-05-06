@@ -10,16 +10,18 @@ class Movie < ActiveRecord::Base
             uniqueness: true
 
   def all_characters
-    ids = collect_ids(characters)
-    results = ComicVine.fetch_characters(ids)
-    collect_characters(results, characters)
+    ids = collect_ids
+    comic_vine = ComicVine.new(ids)
+    results = comic_vine.fetch_characters
+    collect_characters(results)
   end
 
-  def collect_ids(characters)
+  def collect_ids
     characters.map { |character| character.comic_vine_id }
   end
 
-  def collect_characters(results, characters)
+  def collect_characters(results)
+    results = results['results']
     results.map do |result|
       Character.new(
         name: result['name'],

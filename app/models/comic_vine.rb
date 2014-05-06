@@ -1,12 +1,15 @@
 class ComicVine
   include HTTParty
 
-  def self.fetch_characters(ids)
-    ids = ids.join('|')
-    uri = URI.parse(URI.encode("http://comicvine.com/api/characters/?filter=id:#{ids}&api_key=#{ComicVine.api_key}&format=json".strip))
-    response = self.get(uri)    
+  def initialize(ids)
+    @ids = ids.join('|')
+  end
+
+  def fetch_characters
+    uri = URI.parse(URI.encode("http://comicvine.com/api/characters/?filter=id:#{@ids}&api_key=#{ComicVine.api_key}&format=json".strip))
+    response = HTTParty.get(uri)    
     results = JSON.parse(response.body)
-    results['results']  
+    results 
   end
 
   private
