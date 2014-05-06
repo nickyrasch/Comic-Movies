@@ -1,30 +1,37 @@
 require 'spec_helper'
 
 describe MoviesController do
-  let(:upcoming) { create(:type, name: 'upcoming') }
-  let(:archives) { create(:type, name: 'archives') }
-  let(:avengers) { build(:upcoming_movie) }
-  let(:spider_man) { build(:archived_movie) }
-  let(:create_types) { upcoming and archives }
+  let(:movie) { create(:movie) }
 
   describe 'GET #index' do
     before(:each) do
-      create_types
       get :index
     end
 
-    it 'populates an array of upcoming movies' do
-      expect(assigns[:upcoming_movies]).
-        to match_array [avengers]
-    end
-
-    it 'populates an array of archived movies' do
-      expect(assigns[:archived_movies]).
-        to match_array [spider_man]
-    end    
+    it 'instantiates a @movie_filter' do
+      expect(assigns[:movie_filter]).to be_an_instance_of(MovieFilter)
+    end   
 
     it 'renders the :index template' do
       expect(response).to render_template :index
+    end
+  end
+
+  describe 'GET #show' do
+    before(:each) do
+      get :show, id: movie.id
+    end
+
+    it 'assigns the requested movie' do
+      expect(assigns[:movie]).to eq movie
+    end
+
+    it 'instantiates a @character_filter' do
+      expect(assigns[:character_filter]).to be_an_instance_of(CharacterFilter)
+    end
+
+    it 'renders the :show template' do
+      expect(response).to render_template :show
     end
   end
 end

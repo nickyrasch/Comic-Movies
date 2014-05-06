@@ -1,0 +1,9 @@
+<h1>Admin Dashboard</h1>
+<% if @image_collector.up_to_date? %>
+  <h3>Character images are up to date. No action is required</h3>
+<% else %>
+  <h2>Fetch Marvel Images</h2>
+<% end %>
+<%= form_for @image_collector do |form| %>
+  <div><%= form.submit 'Fetch Images' %></div>
+<% end %>

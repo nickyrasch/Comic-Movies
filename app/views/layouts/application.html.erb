@@ -12,6 +12,9 @@
     <header>
       <h1 id="logo"><%= link_to 'Comic Movies', movies_path %></h1>
     </header>
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value %>
+    <% end %> 
     <%= yield %>
     <footer>
     </footer>

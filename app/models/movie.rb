@@ -10,24 +10,27 @@ class Movie < ActiveRecord::Base
             uniqueness: true
 
   def all_characters
-    ids = collect_ids(characters)
-    results = ComicVine.fetch_characters(ids)
-    collect_characters(results, characters)
+    ids = collect_ids
+    comic_vine = ComicVine.new(ids)
+    results = comic_vine.fetch_characters
+    collect_characters(results)
   end
 
-  def collect_ids(characters)
+  def collect_ids
     characters.map { |character| character.comic_vine_id }
   end
 
-  def collect_characters(results, characters)
+  def collect_characters(results)
+    results = results['results']
     results.map do |result|
-      Character.new(
+      character = Character.find_or_create_by(comic_vine_id: result['id'])
+      character.assign_attributes(
         name: result['name'],
-        image_file_name: result['image']['small_url'],
         description: result['deck'],
         first_appearance_comic_name: result['first_appeared_in_issue']['name'],
         first_appearance_issue_number: result['first_appeared_in_issue']['issue_number'],
-        side_id: characters.find_by_comic_vine_id(result['id']).side_id)      
+        side_id: characters.find_by_comic_vine_id(result['id']).side_id)
+      character
     end
   end
 end

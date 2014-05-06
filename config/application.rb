@@ -13,13 +13,6 @@ Bundler.require(:default, Rails.env)
 
 module ComicMovies
   class Application < Rails::Application
-    config.before_configuration do
-      env_file = File.join(Rails.root, 'config', 'local_env.yml')
-      YAML.load(File.open(env_file)).each do |key, value|
-        ENV[key.to_s] = value
-      end if File.exists?(env_file)
-    end
-
     config.action_controller.asset_host = 
       "http://d1m6yt1zqrbl4q.cloudfront.net"
     config.assets.digest = true  #use MD5 digest for asset names
@@ -29,5 +22,11 @@ module ComicMovies
       'Access-Control-Allow-Origin' => '*',
       'Access-Control-Request-Method' => '*'
     }    
+    config.paperclip_defaults = {
+      storage: :s3,
+      s3_credentials: 'config/initializers/s3.yml',
+      s3_host_name: 's3-us-west-1.amazonaws.com',
+      path: "assets/characters/:id/:style.:extension"
+    }
   end
 end
