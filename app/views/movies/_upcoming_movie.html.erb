@@ -1,7 +1,8 @@
 <li class="upcoming">
-  <%= image_tag(
+  <%= link_to image_tag(
     "#{upcoming_movie.image_file_name}.jpg",
-    class: 'movie_poster') 
+    class: 'movie_poster'),
+    movie_path(upcoming_movie)
   %>
-  <h2><%= upcoming_movie.title %></h2>
+  <h2><%= link_to upcoming_movie.title, upcoming_movie %></h2>
 </li>

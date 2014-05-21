@@ -13,6 +13,7 @@ gem 'asset_sync'
 gem "paperclip", "~> 4.1"
 gem 'aws-sdk'
 gem 'devise'
+gem 'newrelic_rpm'
 
 group :doc do
   gem 'sdoc', require: false
@@ -24,6 +25,7 @@ group :development, :test do
   gem 'guard-rspec', '~> 4.2.8'
   gem 'guard-spork', '~> 1.5.1'
   gem 'spork-rails', github: 'sporkrb/spork-rails'
+  gem 'dotenv-rails'
 end
 
 group :test do

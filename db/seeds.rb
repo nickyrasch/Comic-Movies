@@ -164,6 +164,51 @@ mary_jane = Character.new(
   comic_vine_id: 13380,
   marvel_id: 1009708)
 
+gwen_stacy = Character.new(
+  name: 'gwen stacy',
+  comic_vine_id: 1480,
+  marvel_id: 1009619)
+
+wolverine = Character.new(
+  name: 'wolverine',
+  comic_vine_id: 1440,
+  marvel_id: 1009718)
+
+professor_x = Character.new(
+  name: 'professor x',
+  comic_vine_id: 1505,
+  marvel_id: 1009504)
+
+magneto = Character.new(
+  name: 'magneto',
+  comic_vine_id: 1441,
+  marvel_id: 1009417)
+
+star_lord = Character.new(
+  name: 'star lord',
+  comic_vine_id: 10957,
+  marvel_id: 1010733)
+
+gamora = Character.new(
+  name: 'gamora',
+  comic_vine_id: 6806,
+  marvel_id: 1010763)
+
+drax = Character.new(
+  name: 'drax',
+  comic_vine_id: 6807,
+  marvel_id: 1010735)
+
+sabretooth = Character.new(
+  name: 'sabretooth',
+  comic_vine_id: 4563,
+  marvel_id: 1009554)
+
+mystique = Character.new(
+  name: 'mystique',
+  comic_vine_id: 1469,
+  marvel_id: 1009465)
+
 # THIS IS WHERE WE LIST ALL THE VILLAIN'S
 norman_osborn = Character.new(
   name: 'norman osborn',
@@ -180,11 +225,50 @@ doctor_octopus = Character.new(
   comic_vine_id: 1485, 
   marvel_id: 1009276)
 
+electro = Character.new(
+  name: 'electro',
+  comic_vine_id: 3228, 
+  marvel_id: 1009287)
+
+rhino = Character.new(
+  name: 'rhino',
+  comic_vine_id: 2126, 
+  marvel_id: 1009537)
+
+william_stryker = Character.new(
+  name: 'william stryker',
+  comic_vine_id: 40564, 
+  marvel_id: 1009633)
+
+ronan = Character.new(
+  name: 'ronan',
+  comic_vine_id: 4818, 
+  marvel_id: 1010344)
+
+nebula = Character.new(
+  name: 'nebula',
+  comic_vine_id: 14558, 
+  marvel_id: 1010365)
+
 spider_man.side = hero
 mary_jane.side = hero
+gwen_stacy.side = hero
 harry_osborn.side = hero
+wolverine.side = hero
+professor_x.side = hero
+magneto.side = hero
 norman_osborn.side = villain
 doctor_octopus.side = villain
+electro.side = villain
+rhino.side = villain
+william_stryker.side = villain
+star_lord.side = hero
+gamora.side = hero
+drax.side = hero
+ronan.side = villain
+nebula.side = villain
+sabretooth.side = villain
+mystique.side = villain
 
 # X-MEN MOVIES
 # AVENGERS MOVIES
@@ -199,6 +283,26 @@ spider_man_2.characters << mary_jane
 spider_man_2.characters << doctor_octopus
 spider_man_2.characters << norman_osborn
 spider_man_2.characters << harry_osborn
+amazing_spider_man_2.characters << spider_man
+amazing_spider_man_2.characters << gwen_stacy
+amazing_spider_man_2.characters << harry_osborn
+amazing_spider_man_2.characters << electro
+amazing_spider_man_2.characters << rhino
+x_men_4.characters << wolverine
+x_men_4.characters << professor_x
+x_men_4.characters << magneto
+x_men_4.characters << william_stryker
+guardians.characters << star_lord
+guardians.characters << gamora
+guardians.characters << drax
+guardians.characters << ronan
+guardians.characters << nebula
+x_men_1.characters << wolverine
+x_men_1.characters << professor_x
+x_men_1.characters << magneto
+x_men_1.characters << mystique
+x_men_1.characters << sabretooth
+
 # GUARDIANS MOVIES
 # FANTASTIC FOUR MOVIES
 # GHOST RIDER MOVIES
