@@ -10,7 +10,6 @@ class Character < ActiveRecord::Base
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     },
     s3_host_name: 's3-us-west-1.amazonaws.com',
-    # path: "assets/characters/:id/:style.:extension"
     path: "assets/characters/:id/:filename"  
   do_not_validate_attachment_file_type :image
   
@@ -19,6 +18,6 @@ class Character < ActiveRecord::Base
   end 
 
   def s3_image_path
-    "http://d2egfeka7tguqq.cloudfront.net/assets/characters/#{id}/standard_fantastic.jpg"
+    "http://d2m2h551t8nq1s.cloudfront.net/assets/characters/#{id}/standard_fantastic.jpg"
   end
 end

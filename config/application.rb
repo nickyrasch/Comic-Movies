@@ -14,7 +14,7 @@ Bundler.require(:default, Rails.env)
 module ComicMovies
   class Application < Rails::Application
     config.action_controller.asset_host = 
-      "http://d2egfeka7tguqq.cloudfront.net" 
+      "http://d2m2h551t8nq1s.cloudfront.net" 
     config.assets.digest = true  #use MD5 digest for asset names
     config.assets.enabled = true  #enable the asset pipeline
     config.assets.initialize_on_precompile = true
@@ -30,7 +30,6 @@ module ComicMovies
         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       },
       s3_host_name: 's3-us-west-1.amazonaws.com',
-      # path: "assets/characters/:id/:style.:extension"
       path: "assets/characters/:id/:filename"
     }
   end

@@ -12,6 +12,9 @@ feature 'Movie details page' do
   before :each do
     create_types
     create_movie
+    mary_jane.side = hero
+    spider_man.characters << mary_jane
+    spider_man.save     
     visit root_path
   end
 
@@ -23,14 +26,23 @@ feature 'Movie details page' do
   end
 
   scenario 'lists each characters name, side, description, and first appearance' do
-    mary_jane.side = hero
-    spider_man.characters << mary_jane
-    spider_man.save
     click_link 'Spider Man'    
     expect(page).to have_content mary_jane.name
     expect(page).to have_content mary_jane.side_name.capitalize
     expect(page).to have_content mary_jane.description
     expect(page).to have_content mary_jane.first_appearance_comic_name
     expect(page).to have_content mary_jane.first_appearance_issue_number
+  end
+
+  scenario "each character's name links to Comic Vine", js: true do
+    click_link 'Spider Man'
+    page.find('#Mary_Jane').click
+    expect(page).to have_content 'ComicVine.com'
+  end
+
+  scenario 'character images link to Marvel', js: true do   
+    click_link 'Spider Man'
+    find(:xpath, "//a/img[@alt='Mary Jane']/..").click
+    expect(page).to have_content 'Marvel'
   end
 end

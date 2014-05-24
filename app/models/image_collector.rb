@@ -5,8 +5,8 @@ class ImageCollector
   def fetch_character_images
     Character.all.each do |character|
       marvel_id = character.marvel_id
-      image_url = Marvel.fetch_image(marvel_id)
-      character.update_attributes(image: "#{image_url}/standard_fantastic.jpg")
+      data = Marvel.fetch_data(marvel_id)
+      character.update_attributes(image: "#{data[:image]}/standard_fantastic.jpg", marvel_link: data[:link])
     end
   end
 

@@ -18,6 +18,13 @@
     <% end %> 
     <%= yield %>
     <footer>
+      <div>
+        Data provided by <%= link_to 'Marvel', 'http://www.marvel.com' %>
+        &copy; 2014 Marvel
+      </div>
+      <div>
+        Textual data provided by <%= link_to 'Comic Vine', 'http://www.comicvine.com', id: 'comic_vine' %>
+      </div>
     </footer>
   </body>
 </html>

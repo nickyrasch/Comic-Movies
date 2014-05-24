@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506222052) do
+ActiveRecord::Schema.define(version: 20140523232223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20140506222052) do
     t.integer  "comic_vine_id"
     t.integer  "marvel_id"
     t.integer  "side_id"
+    t.string   "marvel_link"
+    t.string   "comic_vine_link"
   end
 
   add_index "characters", ["side_id"], name: "index_characters_on_side_id", using: :btree

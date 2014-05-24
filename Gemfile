@@ -33,6 +33,7 @@ group :test do
   gem "database_cleaner", "~> 1.0.1"
   gem 'shoulda-matchers'
   gem "faker", "~> 1.1.2"
+  gem "selenium-webdriver", "~> 2.38.0"
 end
 
 group :production do
