@@ -12,7 +12,6 @@ gem 'httparty'
 gem 'asset_sync'
 gem "paperclip", "~> 4.1"
 gem 'aws-sdk'
-gem 'devise'
 gem 'newrelic_rpm'
 
 group :doc do
