@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe AdminDashboardsController do
-  before { controller.stub(:authenticate_admin!) { true } }
-
   describe 'GET #show' do
     before(:each) { get :show }
 
