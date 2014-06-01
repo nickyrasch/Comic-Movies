@@ -4,11 +4,11 @@ describe ComicVine do
   let(:success) { 1 }
   let(:ids) { [1443, 13380] }
   let(:comic_vine) { ComicVine.new(ids) }
-  let(:results) { comic_vine.fetch_characters }
-  let(:call_api) { results }
+  let(:results) { comic_vine.call_api }
+  let(:perform_api_call) { results }
 
   before :each do
-    call_api
+    perform_api_call
   end
 
   it 'performs a successful API call' do
