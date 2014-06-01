@@ -31,6 +31,7 @@ group :test do
   gem "database_cleaner", "~> 1.0.1"
   gem 'shoulda-matchers'
   gem "faker", "~> 1.1.2"
+  gem 'poltergeist'
 end
 
 group :production do

@@ -34,15 +34,16 @@ feature 'Movie details page' do
     expect(page).to have_content mary_jane.first_appearance_issue_number
   end
 
-  # scenario "each character's name links to Comic Vine", js: true do
-  #   click_link 'Spider Man'
-  #   page.find('#Mary_Jane').click
-  #   expect(page).to have_content 'ComicVine.com'
-  # end
+  scenario "each character's name links to Comic Vine", js:true do
+    click_link 'Spider Man'
+    page.find('#Mary_Jane').click
+    expect(page).to have_content 'ComicVine.com'
+    expect(page).to have_content 'Mary Jane'
+  end
 
-  # scenario 'character images link to Marvel', js: true do   
-  #   click_link 'Spider Man'
-  #   find(:xpath, "//a/img[@alt='Mary Jane']/..").click
-  #   expect(page).to have_content 'Marvel'
-  # end
+  scenario 'character images link to Marvel', js: true do   
+    click_link 'Spider Man'
+    page.find('#Mary_Jane_image').click
+    expect(page).to have_content 'Gwen Stacy: Comics'.upcase
+  end
 end
