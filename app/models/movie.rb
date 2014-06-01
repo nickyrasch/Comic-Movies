@@ -10,28 +10,11 @@ class Movie < ActiveRecord::Base
   def all_characters
     ids = collect_ids
     comic_vine = ComicVine.new(ids)
-    results = comic_vine.fetch_characters
-    collect_characters(results)
+    comic_vine.fetch_characters
   end
 
   private
   def collect_ids
     characters.map { |character| character.comic_vine_id }
   end
-
-  def collect_characters(results)
-    results = results['results']
-    results.map do |result|
-      character = Character.find_or_create_by(comic_vine_id: result['id'])
-      character.assign_attributes(
-        name: result['name'],
-        description: result['deck'],
-        first_appearance_comic_name: result['first_appeared_in_issue']['name'],
-        first_appearance_issue_number: result['first_appeared_in_issue']['issue_number'],
-        side_id: characters.find_by_comic_vine_id(result['id']).side_id,
-        comic_vine_link: result['site_detail_url'])
-
-      character
-    end
-  end    
 end
