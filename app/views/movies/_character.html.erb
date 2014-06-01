@@ -1,7 +1,9 @@
 <li>
   <h2><%= link_to character.name, character.comic_vine_link, id: character.name.gsub(' ', '_') %></h2>
   <div class="character">
-    <%= link_to image_tag(character.s3_image_path, alt: character.name), character.marvel_link, class: 'marvel_link' %>
+    <%= link_to image_tag(character.s3_image_path, 
+        alt: character.name),
+        character.marvel_link, id: character.name.gsub(' ', '_') + '_image' %>
     <div class="<%= character.side_name %>">
       <h3><%= character.side_name.capitalize %></h3>
     </div>

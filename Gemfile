@@ -4,7 +4,6 @@ gem 'rails', '4.0.0'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
@@ -32,7 +31,7 @@ group :test do
   gem "database_cleaner", "~> 1.0.1"
   gem 'shoulda-matchers'
   gem "faker", "~> 1.1.2"
-  gem "selenium-webdriver", "~> 2.38.0"
+  gem 'poltergeist'
 end
 
 group :production do

@@ -3,6 +3,7 @@ FactoryGirl.define do
     name 'Mary Jane'
     comic_vine_id 13380
     marvel_id 1009708
+    marvel_link 'http://marvel.com/comics/characters/1009619/gwen_stacy?utm_campaign=apiRef&utm_source=5d97e8765499ff55444f190b7909f5d7'
 
     after(:build) do |hero|
       good = Side.new(name: 'hero')
