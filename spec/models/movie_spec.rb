@@ -30,6 +30,6 @@ describe Movie do
   end
 
   it 'returns all characters for a movie' do
-    expect(spider_man.all_characters.count).to eq spider_man.characters.count
+    expect(spider_man.all_characters).to match_array [mary_jane, norman_osborn]
   end
 end 

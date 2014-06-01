@@ -44,7 +44,6 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.clean
   end
-
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
