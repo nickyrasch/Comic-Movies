@@ -29,17 +29,6 @@ describe Movie do
     expect(duplicate_movie).to have(1).errors_on(:image_file_name)
   end
 
-  it "collects its characters's Comic Vine id's" do
-    expect(spider_man.collect_ids).to match_array [mary_jane.comic_vine_id, norman_osborn.comic_vine_id]
-  end
-
-  it 'collects Comic Vine API results into an array of characters' do
-    results = comic_vine.fetch_characters
-    characters = spider_man.collect_characters(results)
-    expect(characters.count).to eq spider_man.characters.count
-    expect(characters.first.description).to include('Mary Jane')  
-  end
-
   it 'returns all characters for a movie' do
     expect(spider_man.all_characters.count).to eq spider_man.characters.count
   end
