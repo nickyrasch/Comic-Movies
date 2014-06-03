@@ -75,6 +75,19 @@ ComicMovies::Application.configure do
     enable_starttls_auto: true  
   }
 
+  config.paperclip_defaults = {
+    storage: :s3,
+    :s3_credentials => {
+      :bucket => ENV['FOG_DIRECTORY'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    },
+    s3_host_name: 's3-us-west-1.amazonaws.com',
+    path: "assets/characters/:id/:filename"
+  }
+
+  config.action_controller.asset_host = 
+    "http://ENV['CLOUD_DIST_PROD'].cloudfront.net"   
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
   config.i18n.fallbacks = true
