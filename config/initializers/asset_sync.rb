@@ -4,7 +4,13 @@ AssetSync.configure do |config|
   config.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
   # To use AWS reduced redundancy storage.
   # config.aws_reduced_redundancy = true
-  config.fog_directory = ENV['FOG_DIRECTORY']
+  if Rails.env.production?
+    config.fog_directory = ENV['FOG_DIRECTORY']
+  elsif Rails.env.development?
+    config.fog_directory = ENV['FOG_DIRECTORY_DEVELOPMENT']
+  else
+    config.fog_directory = ENV['FOG_DIRECTORY_TEST']
+  end
 
   # Invalidate a file on a cdn after uploading files
   # config.cdn_distribution_id = "12345"
@@ -16,6 +22,9 @@ AssetSync.configure do |config|
   # Don't delete files from the store
   # config.existing_remote_files = "keep"
   #
+  # overwrite stale assets
+  config.existing_remote_files = 'delete'
+  #
   # Automatically replace files with their equivalent gzip compressed version
   # config.gzip_compression = true
   #
@@ -24,5 +33,5 @@ AssetSync.configure do |config|
   config.manifest = true
   #
   # Fail silently.  Useful for environments such as Heroku
-  # config.fail_silently = true
+  config.fail_silently = true
 end
