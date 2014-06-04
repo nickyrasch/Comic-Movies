@@ -17,6 +17,12 @@ class ImageCollector
       end
     end
 
-    true
+    if Character.count > 0
+      true
+    else
+      false
+      # character table either has no records or all characters's 
+      # image_file_sizes are nil      
+    end
   end
 end
