@@ -5,8 +5,13 @@ class ImageCollector
   def fetch_character_images
     Character.all.each do |character|
       marvel_id = character.marvel_id
+      puts "IMAGECOLLECTOR FETCHING CHARACTER IMAGES: #{marvel_id}"
       data = Marvel.fetch_data(marvel_id)
-      character.update_attributes(image: "#{data[:image]}/standard_fantastic.jpg", marvel_link: data[:link])
+      begin
+        character.update_attributes(image: "#{data[:image]}/standard_fantastic.jpg", marvel_link: data[:link])
+      rescue Exception => e
+        puts "ImageCollector exception: #{e.message}"
+      end
     end
   end
 
