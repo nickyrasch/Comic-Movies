@@ -10,6 +10,6 @@ class Character < ActiveRecord::Base
   end 
 
   def s3_image_path
-    "http://d2m2h551t8nq1s.cloudfront.net/assets/characters/#{id}/standard_fantastic.jpg"
+    "http://#{ENV['CLOUD_DIST_PROD']}.cloudfront.net/assets/characters/#{id}/standard_fantastic.jpg"
   end
 end
